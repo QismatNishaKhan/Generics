@@ -6,26 +6,35 @@ using System.Threading.Tasks;
 
 namespace FindMaxNumber
 {
-    public class MaximumNumber
+    public class MaximumNumber<T> where T : IComparable<T>
     {
-        public static T GetMaximum<T>(T first_Value, T second_Value, T third_Value) where T : IComparable<T>
+        public T[] inputArray;
+
+        public MaximumNumber(T[] inputArray)
         {
-            if (first_Value.CompareTo(second_Value) > 0 && first_Value.CompareTo(third_Value) > 0)
-            {
-                return first_Value;
-            }
-            else if (second_Value.CompareTo(first_Value) > 0 && second_Value.CompareTo(third_Value) > 0)
-            {
-                return second_Value;
-            }
-            else if (third_Value.CompareTo(first_Value) > 0 && third_Value.CompareTo(second_Value) > 0)
-            {
-                return third_Value;
-            }
-            else
-            {
-                throw new Exception("Values are same");
-            }
+            this.inputArray = inputArray;
+        }
+        public T[] Sort(T[] inputArray)
+        {
+            Array.Sort(inputArray);
+            return inputArray;
+        }
+
+        public T MaxValue(params T[] inputArray)
+        {
+            var sortedValue = Sort(inputArray);
+            return sortedValue[^1];
+
+        }
+        public T MaxMethod()
+        {
+            var max = MaxValue(this.inputArray);
+            return max;
+        }
+        public void PrintMaxValue()
+        {
+            var max = MaxValue(this.inputArray);
+            Console.WriteLine($"Maximum value :{max}");
         }
     }
 }
