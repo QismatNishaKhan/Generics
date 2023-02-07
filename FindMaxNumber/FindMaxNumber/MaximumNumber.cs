@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace FindMaxNumber
 {
-   
-        public class MaximumNumber
-        {
-        public static float MaximumFloatNum(float firstValue, float secondValue, float thirdValue)
+
+    public class MaximumNumber
+    {
+        public static string MaximumStringNum(string firstValue, string secondValue, string thirdValue)
         {
             if (firstValue.CompareTo(secondValue) > 0 && firstValue.CompareTo(thirdValue) > 0)
 
